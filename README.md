@@ -66,6 +66,8 @@ Defines the main AWS infrastructure:
 * IAM Instance Profile
 * SSM permissions
 
+⚠️ All resources are tagged to make them easier to find if needed. ⚠️
+
 ### `User_data.sh`
 
 Bootstraps the EC2 instance.

@@ -146,3 +146,67 @@ resource "aws_iam_instance_profile" "ec2_ssm" {
   name = "${var.project_name}-ssm-instance-profile"
   role = aws_iam_role.ec2_ssm.name
 }
+
+
+#Health check for the HelpDesk API, using the public IP address of the EC2 instance and the /docs endpoint. The health check will wait for the API to become available before proceeding with the Terraform apply.
+resource "terraform_data" "wait_for_api" {
+
+  depends_on = [
+    aws_instance.api
+  ]
+
+  triggers_replace = [
+    aws_instance.api.id,
+    aws_instance.api.public_ip
+  ]
+
+  provisioner "local-exec" {
+    quiet = true # Hides the output of the command.
+
+    interpreter = [
+      "PowerShell",
+      "-Command"
+    ]
+
+    command = <<-EOT
+      $url = "http://${aws_instance.api.public_ip}/docs"
+      $timeout = 360
+      $elapsed = 0
+
+      Write-Host ""
+      Write-Host "=========================================="
+      Write-Host "Waiting for HelpDesk API... Updating, intalling dependencies, installing docker and starting the application may take near 3 minutes."
+      Write-Host "URL: $url"
+      Write-Host "=========================================="
+
+      while ($elapsed -lt $timeout) {
+
+        try {
+          $response = Invoke-WebRequest `
+            -Uri $url `
+            -UseBasicParsing `
+            -TimeoutSec 5 `
+            -ErrorAction Stop
+
+          if ($response.StatusCode -eq 200) {
+            Write-Host ""
+            Write-Host "=========================================="
+            Write-Host "HelpDesk API is available!"
+            Write-Host "Swagger: $url"
+            Write-Host "=========================================="
+            exit 0
+          }
+        }
+        catch {
+          Write-Host "Waiting for application... ($elapsed/$timeout seconds)"
+        }
+
+        Start-Sleep -Seconds 10
+        $elapsed += 10
+      }
+
+      Write-Error "HelpDesk API did not become available within $timeout seconds."
+      exit 1
+    EOT
+  }
+}
