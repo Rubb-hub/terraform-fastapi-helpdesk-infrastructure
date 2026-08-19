@@ -160,22 +160,22 @@ aws sts get-caller-identity
 
 2️⃣ **Create a local Terraform variables file**
 
-     ```bash
-     cp terraform.tfvars.example terraform.tfvars
-     ```
+ ```bash
+ cp terraform.tfvars.example terraform.tfvars
+ ```
 
-     ⚠️⚠️
-     Note: a \`terraform.tfvars.example\` file with sample values is included. Copy it to 
-     \`terraform.tfvars\` before running the project. It doesn't contain any real sensitive 
-     information, but this separation is kept as a good practice.
+ ⚠️⚠️
+ Note: a \`terraform.tfvars.example\` file with sample values is included. Copy it to 
+ \`terraform.tfvars\` before running the project. It doesn't contain any real sensitive 
+ information, but this separation is kept as a good practice.
 
 3️⃣ **Run Terraform:**
 
     Initalice Terraform
 
-     ```bash
-     terraform init
-     ```
+    ```bash
+    terraform init
+    ```
 
     Review the execution plan:
 
