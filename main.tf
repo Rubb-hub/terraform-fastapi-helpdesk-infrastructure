@@ -1,3 +1,6 @@
+terraform {
+  required_version = ">= 1.6.0"
+}
 
 #Creates VPC with the specified CIDR block. The VPC is tagged with the project name for easy identification.
 resource "aws_vpc" "main" {
@@ -15,7 +18,6 @@ resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = var.public_subnet_cidr
   availability_zone       = var.availability_zone
- #availability_zone       = data.aws_availability_zones.available.names[0] --Dynamically selects the first available availability zone in the specified region.
   map_public_ip_on_launch = true
 
   tags = {
