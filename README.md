@@ -170,7 +170,6 @@ aws sts get-caller-identity
  information, but this separation is kept as a good practice.
 
 
- 
 3️⃣ **Initalice Terraform**
 
  ```bash
@@ -191,17 +190,17 @@ aws sts get-caller-identity
 
 6️⃣ **Confirm the deployment when prompted**
 
- After Terraform finishes, retrieve the EC2 public IP:
+  After Terraform finishes, retrieve the EC2 public IP:
 
  ```bash
  terraform output ec2_public_ip
  ```
 
-    And the public DNS name:
+  And the public DNS name:
 
-     ```bash
-     terraform output ec2_public_dns
-     ```
+ ```bash
+ terraform output ec2_public_dns
+ ```
 
 
 ## Accessing the API
@@ -217,6 +216,18 @@ The OpenAPI specification is available at:
 ```text
 http://<EC2_PUBLIC_IP>/openapi.json
 ```
+
+## Destroy Infrastructure
+
+To remove the AWS infrastructure:
+
+```bash
+terraform destroy
+```
+
+Review the resources that will be deleted before confirming.
+
+> AWS resources can incur costs. Destroy the infrastructure when it is no longer required.
 
 ## Secure EC2 Administration with SSM
 
@@ -254,17 +265,7 @@ This approach avoids depending on the administrator's public IP address and prov
 The infrastructure currently exposes HTTP on port `80` to the Internet because Nginx is the public entry point for the application.
 
 
-## Destroy Infrastructure
 
-To remove the AWS infrastructure:
-
-```bash
-terraform destroy
-```
-
-Review the resources that will be deleted before confirming.
-
-> AWS resources can incur costs. Destroy the infrastructure when it is no longer required.
 
 ## Related Repository
 
@@ -401,4 +402,4 @@ The deployment user uses the following custom policy:
 
 ## Architecture
 
-<img src="imgs/aws_architecture.svg" alt="Logo" width="180" />
+<img src="imgs/aws_architecture.svg" alt="architecture" width="500" />
