@@ -66,6 +66,7 @@ resource "aws_security_group" "api" {
     Name = "${var.project_name}-sg"
   }
 }
+/*
 resource "aws_vpc_security_group_ingress_rule" "ssh" {
   security_group_id = aws_security_group.api.id
 
@@ -76,6 +77,7 @@ resource "aws_vpc_security_group_ingress_rule" "ssh" {
 
   description = "SSH access from owner IP"
 }
+*/
 resource "aws_vpc_security_group_ingress_rule" "http" {
   security_group_id = aws_security_group.api.id
 
@@ -111,14 +113,16 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 }
+/*
 variable "ssh_key" {
   description = "AWS EC2 key pair name"
   type        = string
 }
+*/
 resource "aws_instance" "api" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  key_name      = var.ssh_key
+  #key_name      = var.ssh_key
   iam_instance_profile = aws_iam_instance_profile.ec2_ssm.name
   associate_public_ip_address = true #this is required to access the instance from the internet, as it is in a public subnet.
 
