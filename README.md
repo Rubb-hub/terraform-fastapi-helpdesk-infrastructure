@@ -169,33 +169,33 @@ aws sts get-caller-identity
  \`terraform.tfvars\` before running the project. It doesn't contain any real sensitive 
  information, but this separation is kept as a good practice.
 
-3️⃣ **Run Terraform:**
+
  
- **Initalice Terraform**
+3️⃣ **Initalice Terraform**
 
  ```bash
  terraform init
  ```
 
-    Review the execution plan:
+4️⃣ **Review the execution plan**
 
-     ```bash
-     terraform plan
-     ```
+ ```bash
+ terraform plan
+ ```
 
-    Create the infrastructure:
+5️⃣ **Create the infrastructure**
 
-     ```bash
-     terraform apply
-     ```
+ ```bash
+ terraform apply
+ ```
 
-     Confirm the deployment when prompted.
+6️⃣ **Confirm the deployment when prompted**
 
-    After Terraform finishes, retrieve the EC2 public IP:
+ After Terraform finishes, retrieve the EC2 public IP:
 
-     ```bash
-     terraform output ec2_public_ip
-     ```
+ ```bash
+ terraform output ec2_public_ip
+ ```
 
     And the public DNS name:
 
