@@ -402,4 +402,4 @@ The deployment user uses the following custom policy:
 
 ## Architecture
 
-<img src="imgs/aws_architecture.svg" alt="architecture" width="500" />
+<img src="imgs/aws_architecture.svg" alt="architecture" width="850" />
