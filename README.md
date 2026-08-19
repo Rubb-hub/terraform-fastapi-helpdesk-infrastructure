@@ -153,10 +153,10 @@ aws sts get-caller-identity
 
 1️⃣ **Clone the repo:**
 
-    ```bash
-    git clone https://github.com/Rubb-hub/terraform-fastapi-helpdesk-infrastructure.git
-    cd terraform-fastapi-helpdesk-infrastructure
-    ```
+ ```bash
+ git clone https://github.com/Rubb-hub/terraform-fastapi-helpdesk-infrastructure.git
+ cd terraform-fastapi-helpdesk-infrastructure
+ ```
 
 2️⃣ **Create a local Terraform variables file**
 
