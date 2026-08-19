@@ -217,6 +217,15 @@ The OpenAPI specification is available at:
 http://<EC2_PUBLIC_IP>/openapi.json
 ```
 
+Check the available endpoints --> 🔗[fastapi-helpdesk-api](https://github.com/Rubb-hub/fastapi-helpdesk-api)
+
+
+## Demo Users
+
+    ✅ User:ExpAdmin / Pass:expadmin / Rol:Admin
+    --> A user that always exists for testing purposes. 
+      These credentials are intended exclusively for demonstration purposes and must never be used in a production environment.
+
 ## Destroy Infrastructure
 
 To remove the AWS infrastructure:
@@ -259,12 +268,6 @@ AWS Console
 ```
 
 This approach avoids depending on the administrator's public IP address and provides an alternative to traditional SSH access.
-
-## Security Considerations
-
-The infrastructure currently exposes HTTP on port `80` to the Internet because Nginx is the public entry point for the application.
-
-
 
 
 ## Related Repository
