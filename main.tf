@@ -23,12 +23,6 @@ resource "aws_subnet" "public" {
   }
 }
 
-/*
-data "aws_availability_zones" "available" {
-  state = "available"
-}
-*/
-
 #Allows instances in the VPC to access the internet.
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
@@ -66,18 +60,7 @@ resource "aws_security_group" "api" {
     Name = "${var.project_name}-sg"
   }
 }
-/*
-resource "aws_vpc_security_group_ingress_rule" "ssh" {
-  security_group_id = aws_security_group.api.id
 
-  cidr_ipv4   = var.ssh_allowed_cidr
-  from_port   = 22
-  to_port     = 22
-  ip_protocol = "tcp"
-
-  description = "SSH access from owner IP"
-}
-*/
 resource "aws_vpc_security_group_ingress_rule" "http" {
   security_group_id = aws_security_group.api.id
 
@@ -113,16 +96,10 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 }
-/*
-variable "ssh_key" {
-  description = "AWS EC2 key pair name"
-  type        = string
-}
-*/
+
 resource "aws_instance" "api" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
-  #key_name      = var.ssh_key
   iam_instance_profile = aws_iam_instance_profile.ec2_ssm.name
   associate_public_ip_address = true #this is required to access the instance from the internet, as it is in a public subnet.
 
@@ -140,7 +117,7 @@ resource "aws_instance" "api" {
   }
 }
 
-##SSM SessIon Manager IAM Role and Policy for the EC2 instance, allowing secure access to the instance without using SSH keys.
+##SSM SessIon Manager IAM Role and Policy for the EC2 instance, allowing secure access to the instance without using SSH.
 resource "aws_iam_role" "ec2_ssm" {
   name = "${var.project_name}-ssm-role"
 

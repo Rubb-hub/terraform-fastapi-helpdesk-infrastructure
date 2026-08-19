@@ -35,10 +35,3 @@ variable "instance_type" {
   default     = "t3.micro"
 }
 
-/*
-#Classless Inter-Domain Routing -- Only my IP address is allowed to access the instance via SSH
-variable "ssh_allowed_cidr" {
-  description = "CIDR allowed to access SSH_terraform_deployment"
-  type        = string
-}
-*/
