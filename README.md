@@ -170,12 +170,12 @@ aws sts get-caller-identity
  information, but this separation is kept as a good practice.
 
 3️⃣ **Run Terraform:**
+ 
+ **Initalice Terraform**
 
-    Initalice Terraform
-
-    ```bash
-    terraform init
-    ```
+ ```bash
+ terraform init
+ ```
 
     Review the execution plan:
 
