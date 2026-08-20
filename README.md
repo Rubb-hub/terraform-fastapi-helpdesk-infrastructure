@@ -2,7 +2,9 @@
 
 Infrastructure as Code (IaC) project for deploying a containerized FastAPI Helpdesk application on AWS using Terraform.
 
-The project provisions the AWS infrastructure required to run the application on an Ubuntu EC2 instance, including networking, security, Docker, PostgreSQL, Nginx and AWS Systems Manager Session Manager(No ssh).
+The project provisions the AWS infrastructure required to run the application on an Ubuntu EC2 instance, including networking, security, Docker, PostgreSQL, Nginx and AWS Systems Manager Session Manager (No SSH).
+
+**Related Repository - FastAPI Helpdesk API source code -->** 🔗[fastapi-helpdesk-api](https://github.com/Rubb-hub/fastapi-helpdesk-api)
 
 ## AWS Resources & Architecture
 
@@ -68,7 +70,7 @@ Defines the main AWS infrastructure:
 * IAM Instance Profile
 * SSM permissions
 
-⚠️ All resources are tagged to make them easier to find if needed. ⚠️
+⚠️ **All resources are tagged to make them easier to find if needed.** ⚠️
 
 ### `User_data.sh`
 
@@ -252,7 +254,7 @@ AmazonSSMManagedInstanceCore
 
 This allows the instance to register with AWS Systems Manager and be accessed through Session Manager.
 
-The goal is to avoid exposing SSH directly to the Internet.
+✅ **The goal is to avoid exposing SSH directly to the Internet.** ✅
 
 Once the instance is available in Systems Manager, connect using:
 
@@ -260,10 +262,9 @@ Once the instance is available in Systems Manager, connect using:
 aws ssm start-session --target <INSTANCE_ID>
 ```
 
-Or use:
+Or use AWS Console:
 
 ```text
-AWS Console
 → EC2
 → Instances
 → Select instance
@@ -274,11 +275,7 @@ AWS Console
 This approach avoids depending on the administrator's public IP address and provides an alternative to traditional SSH access.
 
 
-## Related Repository
-
-**FastAPI Helpdesk API source code** --> 🔗[fastapi-helpdesk-api](https://github.com/Rubb-hub/fastapi-helpdesk-api)
-
-## Terraform Deployment IAM User
+## Terraform Custom IAM User
 
 Terraform was executed using a dedicated custom IAM user rather than an AWS account root user or an administrator-level identity.
 
@@ -318,7 +315,7 @@ The `iam:PassRole` permission was also restricted to the specific SSM IAM Role u
 
 This approach provided an additional security boundary and followed the principle of least privilege more closely.
 
-### Custom IAM Policy
+### Terraform used IAM Policy
 
 The deployment user uses the following custom policy:
 
@@ -406,7 +403,3 @@ The deployment user uses the following custom policy:
   ]
 }
 ```
-
-## Architecture
-
-<img src="imgs/aws_architecture.svg" alt="architecture" width="850" />
