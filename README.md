@@ -6,7 +6,7 @@ The project provisions the AWS infrastructure required to run the application on
 
 **Related Repository - FastAPI Helpdesk API source code -->** 🔗[fastapi-helpdesk-api](https://github.com/Rubb-hub/fastapi-helpdesk-api)
 
-## AWS Resources & Architecture
+## **AWS Resources & Architecture**
 
 Terraform provisions:
 
