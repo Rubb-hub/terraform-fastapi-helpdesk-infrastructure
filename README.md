@@ -4,7 +4,7 @@ Infrastructure as Code (IaC) project for deploying a containerized FastAPI Helpd
 
 The project provisions the AWS infrastructure required to run the application on an Ubuntu EC2 instance, including networking, security, Docker, PostgreSQL, Nginx and AWS Systems Manager Session Manager(No ssh).
 
-## AWS Resources
+## AWS Resources & Architecture
 
 Terraform provisions:
 
@@ -20,7 +20,9 @@ Terraform provisions:
 * Docker and Docker Compose installation
 * Application deployment through EC2 `user_data`
 
-The infrastructure is intentionally kept simple and focused on demonstrating AWS, Terraform and DevOps fundamentals.
+This project focuses on core DevOps practices: Infrastructure as Code, cloud networking, IAM, secure instance administration, containerized application deployment and automated infrastructure provisioning.
+
+<img src="imgs/aws_architecture.svg" alt="architecture" width="800" />
 
 ## Technology Stack
 
@@ -85,13 +87,12 @@ The script:
 
 Contains configurable infrastructure parameters such as:
 
+* Project name
 * AWS region
 * Availability Zone
-* project name
 * VPC CIDR
 * subnet CIDR
 * EC2 instance type
-* SSH access CIDR
 
 ### `outputs.tf`
 
@@ -100,16 +101,17 @@ Returns useful information after deployment, including:
 * EC2 public IP
 * EC2 public DNS
 
-## Application Deployment
+## Automated EC2 Bootstrap
 
-The EC2 instance is automatically configured using `user_data`.
+The EC2 instance is automatically configured during first boot using a Terraform-managed `user_data` script. The script installs Docker and Docker Compose, retrieves the application source code and starts the multi-container application stack.
 
 During the first boot Terraform's EC2 instance:
 
-1. Installs Docker.
-2. Installs Docker Compose.
-3. Clones the application repository.
-4. Starts the application stack.
+1. OS Update 
+2. Installs Docker.
+3. Installs Docker Compose.
+4. Clones the application repository.
+5. Starts the application stack.
 
 The application repository is:
 
