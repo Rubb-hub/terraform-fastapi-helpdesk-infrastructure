@@ -1,56 +1,52 @@
-<svg width="100%" viewBox="0 0 680 460" role="img" style="" xmlns="http://www.w3.org/2000/svg">
-<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Arquitectura AWS: VPC con subred pública, EC2 e IAM para SSM</title>
-<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Diagrama estructural mostrando un Internet Gateway conectado a una tabla de rutas dentro de una VPC, que enruta hacia una subred pública. Dentro de la subred hay una instancia EC2 con un Security Group y un perfil de instancia IAM para SSM.</desc>
-<defs>
-<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
-<mask id="imagine-text-gaps-p3z0yc" maskUnits="userSpaceOnUse"><rect x="0" y="0" width="680" height="460" fill="white"/><rect x="122.234375" y="30.5" width="116.4130859375" height="23" fill="black" rx="2"/><rect x="65" y="108" width="134.78125" height="23" fill="black" rx="2"/><rect x="149.484375" y="146.5" width="81.5908203125" height="23" fill="black" rx="2"/><rect x="129.046875" y="166" width="122.431640625" height="20" fill="black" rx="2"/><rect x="96" y="218" width="103.265625" height="23" fill="black" rx="2"/><rect x="159.734375" y="270.5" width="120.53125" height="23" fill="black" rx="2"/><rect x="145.6796875" y="294" width="147.8359375" height="20" fill="black" rx="2"/><rect x="398.15625" y="270.5" width="133.6875" height="23" fill="black" rx="2"/><rect x="417.078125" y="294" width="96.375" height="20" fill="black" rx="2"/><rect x="403.90625" y="312" width="122.1875" height="20" fill="black" rx="2"/><rect x="152.125" y="356.5" width="136.298828125" height="23" fill="black" rx="2"/><rect x="167.046875" y="376" width="106.271484375" height="20" fill="black" rx="2"/></mask></defs>
+<svg viewBox="0 0 1072 731" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+  <!-- Background -->
+  <rect x="0" y="0" width="1072" height="731" fill="#0d1117"/>
 
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="110" y="20" width="140" height="44" rx="8" stroke-width="0.5" style="fill:rgb(241, 239, 232);stroke:rgb(95, 94, 90);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="180" y="42" text-anchor="middle" dominant-baseline="central" style="fill:rgb(68, 68, 65);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Internet gateway</text>
-</g>
+  <!-- Internet gateway box -->
+  <rect x="187" y="33" width="215" height="65" rx="12" fill="#f0ece0" stroke="#f0ece0"/>
+  <text x="294" y="72" font-size="20" fill="#2b2b2b" text-anchor="middle" font-weight="500">Internet gateway</text>
 
-<line x1="180" y1="64" x2="180" y2="138" marker-end="url(#arrow)" mask="url(#imagine-text-gaps-p3z0yc)" style="fill:none;stroke:rgb(137, 135, 129);color:rgb(11, 11, 11);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Line from IGW to VPC -->
+  <line x1="294" y1="98" x2="294" y2="156" stroke="#8a8a8a" stroke-width="2"/>
 
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="50" y="100" width="580" height="340" rx="20" stroke-width="0.5" style="fill:rgb(234, 243, 222);stroke:rgb(59, 109, 17);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="70" y="125" style="fill:rgb(39, 80, 10);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:start;dominant-baseline:auto">VPC (aws_vpc.main)</text>
-</g>
+  <!-- VPC container -->
+  <rect x="95" y="156" width="892" height="519" rx="24" fill="#e4f0d8"/>
+  <text x="128" y="196" font-size="22" fill="#1f4d1f" font-weight="600">VPC (aws_vpc.main)</text>
 
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="80" y="140" width="220" height="50" rx="10" stroke-width="0.5" style="fill:rgb(225, 245, 238);stroke:rgb(15, 110, 86);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="190" y="158" text-anchor="middle" dominant-baseline="central" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Route table</text>
-<text x="190" y="176" text-anchor="middle" dominant-baseline="central" style="fill:rgb(15, 110, 86);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Ruta pública 0.0.0.0/0</text>
-</g>
+  <!-- Route table box -->
+  <rect x="141" y="216" width="338" height="75" rx="10" fill="#d6efe4" stroke="#4a9b7f" stroke-width="1.5"/>
+  <text x="310" y="248" font-size="19" fill="#1f5c47" text-anchor="middle" font-weight="700">Route table</text>
+  <text x="310" y="272" font-size="15" fill="#1f5c47" text-anchor="middle">Public route 0.0.0.0/0</text>
 
-<line x1="180" y1="190" x2="180" y2="208" marker-end="url(#arrow)" style="fill:none;stroke:rgb(137, 135, 129);color:rgb(11, 11, 11);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Arrow route table to subnet -->
+  <line x1="310" y1="291" x2="310" y2="322" stroke="#8a8a8a" stroke-width="2"/>
+  <polygon points="303,316 310,330 317,316" fill="#8a8a8a"/>
 
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="80" y="210" width="520" height="210" rx="12" stroke-width="0.5" style="fill:rgb(225, 245, 238);stroke:rgb(15, 110, 86);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="100" y="235" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:start;dominant-baseline:auto">Subred pública</text>
-</g>
+  <!-- Public subnet container -->
+  <rect x="141" y="326" width="795" height="317" rx="20" fill="#cdeee0"/>
+  <text x="171" y="365" font-size="20" fill="#1f5c47" font-weight="600">Public subnet</text>
 
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="110" y="260" width="220" height="70" rx="10" stroke-width="0.5" style="fill:rgb(250, 236, 231);stroke:rgb(153, 60, 29);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="220" y="282" text-anchor="middle" dominant-baseline="central" style="fill:rgb(113, 43, 19);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">EC2 instance (api)</text>
-<text x="220" y="304" text-anchor="middle" dominant-baseline="central" style="fill:rgb(153, 60, 29);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">AMI: data.aws_ami.ubuntu</text>
-</g>
+  <!-- EC2 instance box -->
+  <rect x="187" y="402" width="338" height="105" rx="10" fill="#f7ded9" stroke="#c46a52" stroke-width="1.5"/>
+  <text x="356" y="443" font-size="20" fill="#8a3b26" text-anchor="middle" font-weight="700">EC2 instance (api)</text>
+  <text x="356" y="470" font-size="15" fill="#8a3b26" text-anchor="middle">AMI: data.aws_ami.ubuntu</text>
 
-<line x1="330" y1="295" x2="358" y2="295" marker-end="url(#arrow)" style="fill:none;stroke:rgb(137, 135, 129);color:rgb(11, 11, 11);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Arrow EC2 to Security group -->
+  <line x1="525" y1="454" x2="562" y2="454" stroke="#8a8a8a" stroke-width="2"/>
+  <polygon points="556,447 570,454 556,461" fill="#8a8a8a"/>
 
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="360" y="260" width="210" height="100" rx="10" stroke-width="0.5" style="fill:rgb(250, 238, 218);stroke:rgb(133, 79, 11);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="465" y="282" text-anchor="middle" dominant-baseline="central" style="fill:rgb(99, 56, 6);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">Security group (api)</text>
-<text x="465" y="304" text-anchor="middle" dominant-baseline="central" style="fill:rgb(133, 79, 11);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Ingress: HTTP 80</text>
-<text x="465" y="322" text-anchor="middle" dominant-baseline="central" style="fill:rgb(133, 79, 11);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Egress: todo el tráfico</text>
-</g>
+  <!-- Security group box -->
+  <rect x="572" y="402" width="324" height="160" rx="10" fill="#f4e2be" stroke="#c99a3f" stroke-width="1.5"/>
+  <text x="734" y="443" font-size="20" fill="#7a5314" text-anchor="middle" font-weight="700">Security group (api)</text>
+  <text x="734" y="470" font-size="15" fill="#7a5314" text-anchor="middle">Ingress: HTTP 80</text>
+  <text x="734" y="495" font-size="15" fill="#7a5314" text-anchor="middle">Egress: all traffic</text>
 
-<line x1="220" y1="330" x2="220" y2="348" marker-end="url(#arrow)" style="fill:none;stroke:rgb(137, 135, 129);color:rgb(11, 11, 11);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Arrow EC2 to IAM instance profile -->
+  <line x1="356" y1="507" x2="356" y2="537" stroke="#8a8a8a" stroke-width="2"/>
+  <polygon points="349,531 356,545 363,531" fill="#8a8a8a"/>
 
-<g style="fill:rgb(0, 0, 0);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
-<rect x="110" y="350" width="220" height="50" rx="10" stroke-width="0.5" style="fill:rgb(238, 237, 254);stroke:rgb(83, 74, 183);color:rgb(11, 11, 11);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-<text x="220" y="368" text-anchor="middle" dominant-baseline="central" style="fill:rgb(60, 52, 137);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:middle;dominant-baseline:central">IAM instance profile</text>
-<text x="220" y="386" text-anchor="middle" dominant-baseline="central" style="fill:rgb(83, 74, 183);stroke:none;color:rgb(11, 11, 11);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:anthropic-sans, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:central">Rol SSM (ec2_ssm)</text>
-</g>
-
+  <!-- IAM instance profile box -->
+  <rect x="187" y="548" width="338" height="80" rx="10" fill="#e4e1f5" stroke="#7466b0" stroke-width="1.5"/>
+  <text x="356" y="582" font-size="20" fill="#3f3577" text-anchor="middle" font-weight="700">IAM instance profile</text>
+  <text x="356" y="607" font-size="15" fill="#3f3577" text-anchor="middle">SSM role (ec2_ssm)</text>
 </svg>
