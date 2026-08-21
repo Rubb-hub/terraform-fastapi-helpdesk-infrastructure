@@ -1,5 +1,8 @@
 # Terraform FastAPI Helpdesk Infrastructure
 
+![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?logo=terraform&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-Cloud-232F3E?logo=amazonaws&logoColor=white)
+
 Infrastructure as Code (IaC) project for deploying a containerized FastAPI Helpdesk application on AWS using Terraform.
 
 The project provisions the AWS infrastructure required to run the application on an Ubuntu EC2 instance, including networking, security, Docker, PostgreSQL, Nginx and AWS Systems Manager Session Manager (No SSH).
