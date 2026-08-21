@@ -399,8 +399,8 @@ The deployment user uses the following custom policy:
         "iam:ListAttachedRolePolicies"
       ],
       "Resource": [
-        "arn:aws:iam::851725338458:role/helpdesk-api-terraform-deployment-ssm-role",
-        "arn:aws:iam::851725338458:instance-profile/helpdesk-api-terraform-deployment-ssm-instance-profile"
+        "arn:aws:iam::<AWS_ACCOUNT_ID>:role/helpdesk-api-terraform-deployment-ssm-role",
+        "arn:aws:iam::<AWS_ACCOUNT_ID>:instance-profile/helpdesk-api-terraform-deployment-ssm-instance-profile"
       ]
     }
   ]
